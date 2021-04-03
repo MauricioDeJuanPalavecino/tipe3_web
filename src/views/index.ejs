@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!--CSS-->
+    <link rel="stylesheet" href="css/styleIndex.css">
+    <!--Icons-->
+    <script src="https://kit.fontawesome.com/62ea397d3a.js" crossorigin="anonymous"></script>
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap" rel="stylesheet">
+    <title>Municipalidad</title><!--Titulo que aparece en la pestaña-->
+</head>
+<body>
+    <header><!--Encabezado de la pagina-->
+        <div class="logo">
+            <img src="img/logo.png" alt="">
+        </div>
+        <div class="title-logo">
+            <a>Municipalidad de San Antonio</a>
+        </div>
+        <div class="user">
+            <a>Iniciar Sesion</a>
+            <i class="fas fa-user"></i>
+        </div>
+    </header>
+    <div class="container-fluid"><!--Input y Busqueda-->
+        <div class="row">
+            <div class="col">
+                <input type="text">
+            </div>
+            <div class="col">
+                <div class="dropdown"><!--Boton desplazador sacado de Bootstrap-->
+                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                      Dropdown button
+                    </button>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="#">Link 1</a>
+                      <a class="dropdown-item" href="#">Link 2</a>
+                      <a class="dropdown-item" href="#">Link 3</a>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+    <section>
+        <div class="container-custom"><!--Contenedor para todas las imagenes de los productos de la base de datos-->
+            <!--Inicio seccion que se repite-->
+            <div class="box">
+                <div class="image">
+                    <img src="img/artesanal2.png" alt="">
+                </div>
+            </div>
+            <!--Final seccion que se repite-->
+            <div class="box">
+                <div class="image">
+                    <img src="img/artesanal.png" alt="">
+                </div>
+            </div>
+            <div class="box">
+                <div class="image">
+                    <img src="img/artesanal.png" alt="">
+                </div>
+            </div>
+            <div class="box">
+                <div class="image">
+                    <img src="img/artesanal.png" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<script>//script para cambios en la pagina
+    //funcion listen es para cambiar la pantalla a modo movil al ser menor de 750 pixeles
+    function listen(e){
+        console.log(e);
+        if(e.matches){
+            //el encabezado se visualizara por columna
+            document.querySelector("header").style.flexDirection='column';
+        }else{
+            //el encabezado se visualizara por fila
+            document.querySelector("header").style.flexDirection='row';
+        }
+    }
+    let screenPW = window.matchMedia("(max-width: 750px)");//entrega un true si la pantalla es menor a 750 pixeles
+    listen(screenPW);
+    screenPW.addListener(listen);//es para que la variable sea escuchada a cada momento
+</script>
+</html>

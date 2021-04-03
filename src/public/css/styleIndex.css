@@ -1,0 +1,103 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+/*Start-Header*/
+header{
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 100px;
+    z-index: 10;
+    background: #3180c2;
+
+}
+.logo{
+    position: relative;
+}
+.title-logo{
+    color: #ffffff;
+    font-size: 20px;
+    flex: 1;
+    font-weight: 600;
+}
+.logo img{
+    width: 100px;
+    height: 100px;
+    padding: 12px;
+}
+.user{
+    position: relative;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+.user i{
+    margin: 0px 2px;
+    padding-left: 3px;
+    font-size: 20px;
+}
+.user:hover{
+    color: #aaaaaa;
+}
+/*End-Header*/
+/*Start-Menu*/
+.container-fluid{
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.row{
+    margin:20px;
+    display: grid;
+    grid-auto-flow: column;
+
+}
+.row .col{
+    height: 50px;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+.col{
+    padding: 0px 150px;
+}
+/*End-Menu*/
+/*Start-Products*/
+section{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.container-custom{
+    position: relative;
+    width: 940px;
+    margin: 20px;
+    margin-top: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 20px;
+    justify-items: center;
+    align-items: center;
+}
+.container-custom .box{
+    position: relative;
+    width: 100%;
+    height: 255px;
+}
+.image img{
+    width: 250px;
+    height: 250px;
+}
+.image{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+/*End-Products*/

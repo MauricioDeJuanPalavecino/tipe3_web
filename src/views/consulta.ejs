@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!--CSS-->
+    <link rel="stylesheet" href="css/styleConsult.css">
+    <!--Icons-->
+    <script src="https://kit.fontawesome.com/62ea397d3a.js" crossorigin="anonymous"></script>
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap" rel="stylesheet">
+    <title>Consulta</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <h1>Formulario</h1>
+        <div class="row">
+            <div class="col col-form">
+                <form action="" class="form-custom">
+                    <div class="form-custom_nameStore">
+                        <input type="text" placeholder="Ingrese nombre de la pyme">
+                    </div>
+                    <div class="form-custom_desc">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Ingrese el motivo de la publicacion"></textarea>
+                    </div>
+                    <div class="form-custom_img">
+                        <input type="file">
+                    </div>
+                    <div class="form-custom_button">
+
+                        <button type="submit" class="btn-submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col col-hidden">
+                <div class="img-question">
+                    <img src="img/question.png" alt="">
+                </div>
+            </div>
+          </div>
+    </div>
+</body>
+<script>
+    function listen(e){
+        console.log(e);
+        if(e.matches){
+            document.querySelector(".col-hidden").style.display='none';
+        }else{
+            document.querySelector(".col-hidden").style.display='grid';
+        }
+    }
+    let screenPW = window.matchMedia("(max-width: 750px)");
+    listen(screenPW);
+    screenPW.addListener(listen);
+
+</script>
+</html>

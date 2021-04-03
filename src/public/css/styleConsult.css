@@ -1,0 +1,101 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    background: #373d43;
+}
+.container-fluid{
+    background: #ee4d5d;
+    width: 800px;
+    padding-top: 35px;
+    margin-top: 75px;
+    padding-bottom: 55px;
+    
+}
+.container-fluid h1{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 50px;
+    text-align: center;
+}
+.row{
+    padding-top: 20px;
+}
+.col{
+    margin-left: auto;
+    margin-right: auto; 
+}
+.form-custom{
+    width: 95%;
+    height: 100%;
+
+    margin-left: auto;
+    margin-right: auto; 
+}
+.img-question{
+    width: 250px;
+    height: 250px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.img-question img{
+    width: 100%;
+    height: 100%;
+}
+.form-custom_nameStore input{
+    margin: 9px 0px;
+    background: #ee4d5d;
+    width: 345px;
+    border: none;
+    border-bottom: solid #373d435e;
+    box-shadow: 2px 7px 12px #373d43;
+    color: #ffffff;   
+}
+.form-custom_nameStore input::placeholder{
+    color: #ffffff;   
+}
+.form-custom_nameStore input:focus{
+    outline: none;
+    background: #d44856;  
+}
+.form-custom_desc textarea{
+    margin: 9px 0px;
+    height: 240px;
+    resize: none;
+    background: #ee4d5d;
+    border: none;
+    border-bottom: solid #373d435e;
+    box-shadow: 2px 7px 12px #373d43;  
+}
+.form-custom_desc textarea::placeholder{
+    color: #ffffff;   
+}
+.form-custom_desc textarea:focus{
+    color: #ffffff;
+    border: none;
+    outline: none;
+    background: #d44856; 
+}
+.form-custom_img{
+    margin-top: 25px;
+    margin-bottom: 9px;
+}
+.form-custom_button{
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 22px;
+}
+.form-custom_button button{
+    border: none;
+    color: #ffffff;
+    background: #373d43;
+    padding: 13px 25px;
+    box-shadow: 5px 10px 15px #a32b3b; 
+}
+.form-custom_button button:hover{
+    background: #31353b;
+}
+.form-custom_button button:focus{
+    outline: none;
+    background: #212427;
+}
