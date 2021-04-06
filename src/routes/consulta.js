@@ -12,7 +12,25 @@ router.get('/', (req,res) =>{
     res.render('index.ejs')
 });
 
-router.get('/admin', (req,res) =>{
+// router.get('/admin', (req,res,next) =>{
+//     if(req.isAuthenticated()) return next();
+//     res.redirect('/login');
+
+
+//     conn.query('Select * from emprendedor', (err,resp,campos) => {
+//         //console.log(resp);
+//         res.render('administrador.ejs',   { datos: resp });
+//     });
+// });
+
+router.get('/admin', (req,res,next) =>{
+
+    if(req.isAuthenticated()) return next();
+    res.redirect('/login');
+
+    //res.render('index.ejs');
+    },(req,res,err) =>{
+   
     conn.query('Select * from emprendedor', (err,resp,campos) => {
         //console.log(resp);
         res.render('administrador.ejs',   { datos: resp });
@@ -47,6 +65,14 @@ router.get('/eliminar/:nombre_usuario', (req,res,err) =>{
     });
 });
 
+router.get('/login', (req,res) =>{
+    res.render('login.ejs');
+    
+});
 
+router.post('/login',passport.authenticate('local',{  
+    successRedirect: "/admin",
+    failureRedirect: "/login"
+}));
 
 module.exports = router;
