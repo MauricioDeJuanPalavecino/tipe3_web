@@ -44,28 +44,25 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new PassportLocal(function(username,password,done){
-     conn.query('Select * from usuario where correo = ? and password = ?', [username, password], (err,resp,campos) =>{
+     conn.query('select administrador.nombre_usuario, cuenta.password, administrador.nombre_admin from cuenta inner join administrador on cuenta.nombre_usuario = administrador.nombre_usuario where cuenta.nombre_usuario = ? and cuenta.password = ?', [username, password], (err,resp,campos) =>{
           try{
                var user;
                var pass;
-               var rol;
                 if(resp===null){
                      user= "asd";
                      pass ="asd";
+                   
                 }else{
-                     user = resp[0].correo;
+                     user = resp[0].nombre_usuario;
                      pass = resp[0].password;
-                     rol  = resp[0].rol;
-                     module.exports = {
-                          rol1: rol,
-                     }
                 }
             if(username === user && password ===pass){
                  console.log("entre aqui")
-                 return done(null,{id:resp[0].correo, name: resp[0].nombre});
+                 return done(null,{id:resp[0].nombre_usuario, name: resp[0].nombre_admin});
                 
             }
            }catch(e){
+              
                 console.log("no tengo nada")
                 done(null,false);
                 
