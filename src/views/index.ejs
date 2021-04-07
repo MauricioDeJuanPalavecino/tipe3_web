@@ -18,65 +18,88 @@
     <title>Municipalidad</title><!--Titulo que aparece en la pestaña-->
 </head>
 <body>
-    <header><!--Encabezado de la pagina-->
-        <div class="logo">
-            <img src="img/logo.png" alt="">
+    <header>
+        <div class="Logo_UV">
+            <img src="img/logouv.png" alt="">
         </div>
-        <div class="title-logo">
-            <a>Municipalidad de San Antonio</a>
+        <div class="Logo_MSA">
+            <img src="img/logomsa.png" alt="">
         </div>
-        <div class="user">
-            <a>Iniciar Sesion</a>
+        <div class="Session">
+            <a href="">Iniciar Sesion</a>
             <i class="fas fa-user"></i>
         </div>
     </header>
-    <div class="container-fluid"><!--Input y Busqueda-->
+    <div class="container-fluid">
         <div class="row">
-            <div class="col">
-                <input type="text">
-            </div>
-            <div class="col">
-                <div class="dropdown"><!--Boton desplazador sacado de Bootstrap-->
-                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
-                      Dropdown button
-                    </button>
-                    <div class="dropdown-menu">
-                      <a class="dropdown-item" href="#">Link 1</a>
-                      <a class="dropdown-item" href="#">Link 2</a>
-                      <a class="dropdown-item" href="#">Link 3</a>
+            <div class="col-4">
+                    <div class="star">
+                        <a>Destacados</a>
+                        <img src="img/artesanal.png" alt="">
                     </div>
-                  </div>
+                <div class="faq">
+                    <button class="btn-question">¿Como puedo comprar un producto?</button>
+                    <button class="btn-question">¿Como puedo comprar un producto?</button>
+                    <button class="btn-question">¿Como puedo comprar un producto?</button>
+                    <button class="btn-question">¿Como puedo comprar un producto?</button>
+                    <button class="btn-question">¿Como puedo comprar un producto?</button>
+                </div>
+            </div>
+            <div class="col-8">
+                <div class="row">
+                    <div class="col col-search">
+                        <input type="text">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="col col-dropdown">
+                        <div class="dropdown"><!--Boton desplazador sacado de Bootstrap-->
+                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                              Categorias
+                            </button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="#">Link 1</a>
+                              <a class="dropdown-item" href="#">Link 2</a>
+                              <a class="dropdown-item" href="#">Link 3</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <section>
+                    <div class="row">
+                        <% for(var i = 0; i < datos.length; i++){ %>
+                        <div class="col col-box">
+                            <% if(datos[i].imagen == ''){%>
+                                <img src="img/default.png" alt="">
+                            <% }else{%>
+                                <img src="<%= datos[i].imagen %>" alt="">
+                            <% } %>
+                            <div class="desc-product">
+                                <p><%= datos[i].descripcion_produc %></p>
+                                <a><%= datos[i].precio %></a>
+                                <a type="button" class="btn-desc" id='<%= datos[i].id_producto %>' value='<%= datos[i].id_producto %>' onclick="myFunction(this.id)" >ver mas</a>
+                            </div>
+                            <div class="title-product">
+                                <a><%= datos[i].nombre_producto %></a>
+                            </div>
+                        </div>
+                        <% } %>
+                    </div>
+                </section>
             </div>
         </div>
     </div>
-    <section>
-        <div class="container-custom"><!--Contenedor para todas las imagenes de los productos de la base de datos-->
-            <!--Inicio seccion que se repite-->
-            <div class="box">
-                <div class="image">
-                    <img src="img/artesanal2.png" alt="">
-                </div>
-            </div>
-            <!--Final seccion que se repite-->
-            <div class="box">
-                <div class="image">
-                    <img src="img/artesanal.png" alt="">
-                </div>
-            </div>
-            <div class="box">
-                <div class="image">
-                    <img src="img/artesanal.png" alt="">
-                </div>
-            </div>
-            <div class="box">
-                <div class="image">
-                    <img src="img/artesanal.png" alt="">
-                </div>
-            </div>
+    <footer>
+        <div class="Logo_UV">
+            <img src="img/logouv.png" alt="">
         </div>
-    </section>
+        <div class="Logo_MSA">
+            <img src="img/logomsa.png" alt="">
+        </div>
+    </footer>
+    
 </body>
-<script>//script para cambios en la pagina
+<!--<script>//script para cambios en la pagina
     //funcion listen es para cambiar la pantalla a modo movil al ser menor de 750 pixeles
     function listen(e){
         console.log(e);
@@ -91,5 +114,23 @@
     let screenPW = window.matchMedia("(max-width: 750px)");//entrega un true si la pantalla es menor a 750 pixeles
     listen(screenPW);
     screenPW.addListener(listen);//es para que la variable sea escuchada a cada momento
+</script>-->
+<script>
+    /*function myFunction(){
+        console.log("HOLA");
+        console.log(document.getElementsByClassName("btn-desc").onclick=Boolean(true))
+    }
+    const button = document.querySelector('.btn-desc');
+    button.addEventListener('click', event => {
+        console.log(document.getElementsByClassName("btn-desc"));
+    });*/
+    var global = 0;
+    function myFunction(clicked_id){
+        this.global=parseInt(clicked_id);
+    }
+    window.addEventListener('click',event =>{
+        console.log(global);
+    })
+    
 </script>
 </html>
