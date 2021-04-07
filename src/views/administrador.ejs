@@ -41,17 +41,19 @@
   <h1 class="w3-xlarge">Solicitudes de emprendimiento</h1>
 </div>
 
+
+
      <div class=' w3-striped'>
         <h2 class="w3-section">Instrucciones: </h2>
-        <p>1.- En esta Página de administración de momento la gente administrativa solo puede aceptar o rechazar solicitudes de gente emprendedora</p>
-        <p>2.-En la version BETA se agregarán solicitudes de modificaciones y eliminaciones de emprendimiento o de producto  </p>
+        <p>1.- En esta Página de administración de momento la gente administrativa solo puede aceptar o rechazar solicitudes de gente emprendedora y productos</p>
+        <p>2.-En la version BETA se agregarán solicitudes de modificaciones de emprendimiento o de producto  </p>
         <p>3.-En la version BETA tambien un administrador podra hacer nuevas categorias  </p>
       </div>
     
   
     
 
-    <div class='col-md-6 mt-4 text-center'>
+   
       <table class='w3-table-all w3-centered w3-card-4'>
           <tr class="w3-black">
               <th>nombre del usuario</th>
@@ -84,7 +86,50 @@
              <% } %>
           <% } %>
       </table>
-  </div>
+ 
+
+  
+ 
+    <div class="w3-container w3-padding w3-section w3-light-grey w3-center">
+      <h1 class="w3-xlarge">Solicitudes de productos</h1>
+    </div>
+  
+
+ 
+    <table class='w3-table-all w3-centered w3-card-4'>
+        <tr class="w3-black">
+            <th>nombre del usuario</th>
+            <th>Precio</th>
+            <th>Nombre del producto</th>
+            <th>imagen</th>
+            <th>fecha de publicacion</th>
+            <th>descripcion del producto</th>
+            <th>Rechazar</th>
+            <th>Aceptar</th>
+        </tr>
+        <% for(var i = 0; i < datos1.length; i++){ %>
+          <%if(datos1[i].activo==0){%>
+           <tr class="w3-blue">
+               <td><%= datos1[i].nombre_usuario %> <% i %></td>
+               <td><%= datos1[i].precio %></td>
+               <td><%= datos1[i].nombre_producto %></td>
+               <td><img style="max-width:60%;max-height:60px" src= "img/<%=datos1[i].imagen%>" ></td>
+               <td><%= datos1[i].fecha_publicacion %></td>
+               <td><%= datos1[i].descripcion_produc %></td>
+               <td>
+                <form action="/eliminar1/<%=datos1[i].id_producto%>"  method="get" class="card-body">
+                  <input type="submit" class="btn btn-danger" value="Rechazar" ></input>
+              </form> 
+              </td>
+              <td>
+                <form action="/modificar1/<%=datos1[i].id_producto%>"  method="POST" class="card-body">
+                <input type="submit" class="btn btn-success" value="Aceptar" ></input>
+                </form>
+              </td>
+           </tr> 
+           <% } %>
+        <% } %>
+    </table>
 
   
 
