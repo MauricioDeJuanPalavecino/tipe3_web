@@ -31,7 +31,7 @@ app.use(multer({
   //   const filetype = /jpeg|jpg|png|gif/;
   //   }
 }).any('jpg'));
-app.use(express.static(path.join(__dirname, "public/img") ));
+//app.use(express.static(path.join(__dirname, "imagen") ));
 app.use(express.urlencoded({ extended: true}))
 app.use(express.json()); //Transfomar a formato JSON 
 app.use(bodyParser.urlencoded({extended: true}));
