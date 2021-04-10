@@ -57,29 +57,49 @@
             <button class="btn-question">¿Como puedo comprar un producto?</button>
         </div>
     </section>
-    
+
     <section id="right-section">
         <div id="products-box" class="display-case">
             <div id="faq-title" class="displaycase-header">
                 <h1 >Productos</h1>
             </div>
-            <% for(var i = 0; i < datos.length; i++){ %>
-            <div class="col col-box">
-                <% if(datos[i].imagen == ''){%>
-                    <img src="img/default.png" alt="">
-                <% }else{%>
-                    <img src="img/<%=datos[i].imagen%>" alt="">
-                <% } %>
-                <div class="desc-product">
-                    <p><%= datos[i].descripcion_produc %></p>
-                    <a><%= datos[i].precio %></a>
-                    <a type="button" class="btn-desc" id='<%= datos[i].id_producto %>' value='<%= datos[i].id_producto %>' onclick="myFunction(this.id)" >ver mas</a>
+            <div id="search-options">
+                <div id="search">
+                    <input type="text">
+                    <i class="fas fa-search"></i>
                 </div>
-                <div class="title-product">
-                    <a><%= datos[i].nombre_producto %></a>
+                <div id="category">
+                    <div class="dropdown"><!--Boton desplazador sacado de Bootstrap-->
+                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                          Categorias
+                        </button>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" href="#">Link 1</a>
+                          <a class="dropdown-item" href="#">Link 2</a>
+                          <a class="dropdown-item" href="#">Link 3</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <% } %>
+            <div id="products">
+                <% for(var i = 0; i < datos.length; i++){ %>
+                <div class="col col-box">
+                    <% if(datos[i].imagen == ''){%>
+                        <img src="img/default.png" alt="">
+                    <% }else{%>
+                        <img src="img/<%=datos[i].imagen%>" alt="">
+                    <% } %>
+                    <div class="desc-product">
+                        <p><%= datos[i].descripcion_produc %></p>
+                        <a><%= datos[i].precio %></a>
+                        <a type="button" class="btn-desc" id='<%= datos[i].id_producto %>' value='<%= datos[i].id_producto %>' onclick="myFunction(this.id)" >ver mas</a>
+                    </div>
+                    <div class="title-product">
+                        <a><%= datos[i].nombre_producto %></a>
+                    </div>
+                </div>
+                <% } %>
+            </div>
         </div>
     </section>
 
