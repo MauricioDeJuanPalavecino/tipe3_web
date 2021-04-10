@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,6 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap" rel="stylesheet">
     <title>Municipalidad</title><!--Titulo que aparece en la pestaña-->
 </head>
+
 <body>
     <header>
         <div class="Logo_UV">
@@ -30,65 +32,57 @@
             <i class="fas fa-user"></i>
         </div>
     </header>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-4">
-                    <div class="star">
-                        <a>Destacados</a>
-                        <img src="img/artesanal.png" alt="">
-                    </div>
-                <div class="faq">
-                    <button class="btn-question">¿Como puedo comprar un producto?</button>
-                    <button class="btn-question">¿Como puedo comprar un producto?</button>
-                    <button class="btn-question">¿Como puedo comprar un producto?</button>
-                    <button class="btn-question">¿Como puedo comprar un producto?</button>
-                    <button class="btn-question">¿Como puedo comprar un producto?</button>
-                </div>
+
+    <section id="left-section">
+        <div id="featured-box" class="display-case">
+            <div id="featured-title" class="displaycase-header">
+                <h1>Destacados</h1>
             </div>
-            <div class="col-8">
-                <div class="row">
-                    <div class="col col-search">
-                        <input type="text">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <div class="col col-dropdown">
-                        <div class="dropdown"><!--Boton desplazador sacado de Bootstrap-->
-                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
-                              Categorias
-                            </button>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" href="#">Link 1</a>
-                              <a class="dropdown-item" href="#">Link 2</a>
-                              <a class="dropdown-item" href="#">Link 3</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <section>
-                    <div class="row">
-                        <% for(var i = 0; i < datos.length; i++){ %>
-                        <div class="col col-box">
-                            <% if(datos[i].imagen == ''){%>
-                                <img src="img/default.png" alt="">
-                            <% }else{%>
-                                <img src="<%= datos[i].imagen %>" alt="">
-                            <% } %>
-                            <div class="desc-product">
-                                <p><%= datos[i].descripcion_produc %></p>
-                                <a><%= datos[i].precio %></a>
-                                <a type="button" class="btn-desc" id='<%= datos[i].id_producto %>' value='<%= datos[i].id_producto %>' onclick="myFunction(this.id)" >ver mas</a>
-                            </div>
-                            <div class="title-product">
-                                <a><%= datos[i].nombre_producto %></a>
-                            </div>
-                        </div>
-                        <% } %>
-                    </div>
-                </section>
+            <div id="featured-image">
+                <img src="img/artesanal.png" alt="">
+            </div>
+            <div id="featured-details">
+                <a>Nombre</a>
+                <a>Precio</a>
             </div>
         </div>
-    </div>
+        <div id="faq-box" class="display-case">
+            <div id="faq-title" class="displaycase-header">
+                <h1 >Preguntas Frecuentes</h1>
+            </div>
+            <button class="btn-question">¿Como puedo comprar un producto?</button>
+            <button class="btn-question">¿Como puedo comprar un producto?</button>
+            <button class="btn-question">¿Como puedo comprar un producto?</button>
+            <button class="btn-question">¿Como puedo comprar un producto?</button>
+            <button class="btn-question">¿Como puedo comprar un producto?</button>
+        </div>
+    </section>
+    
+    <section id="right-section">
+        <div id="products-box" class="display-case">
+            <div id="faq-title" class="displaycase-header">
+                <h1 >Productos</h1>
+            </div>
+            <% for(var i = 0; i < datos.length; i++){ %>
+            <div class="col col-box">
+                <% if(datos[i].imagen == ''){%>
+                    <img src="img/default.png" alt="">
+                <% }else{%>
+                    <img src="img/<%=datos[i].imagen%>" alt="">
+                <% } %>
+                <div class="desc-product">
+                    <p><%= datos[i].descripcion_produc %></p>
+                    <a><%= datos[i].precio %></a>
+                    <a type="button" class="btn-desc" id='<%= datos[i].id_producto %>' value='<%= datos[i].id_producto %>' onclick="myFunction(this.id)" >ver mas</a>
+                </div>
+                <div class="title-product">
+                    <a><%= datos[i].nombre_producto %></a>
+                </div>
+            </div>
+            <% } %>
+        </div>
+    </section>
+
     <footer>
         <div class="Logo_UV">
             <img src="img/logouv.png" alt="">
